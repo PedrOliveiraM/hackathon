@@ -82,109 +82,109 @@ export default function ForumPage() {
   }
 
   return (
-
-    <div className="flex flex-col h-screen">
+    <div className="flex h-screen flex-col">
       <div className="flex h-screen">
-      {/* Passa a função handleSidebarClick para a Sidebar */}
-      <Sidebar setCepData={handleSidebarClick} />
-      <div className="flex-1 bg-gray-100 p-6">
-        <div className="container mx-auto p-6">
-          <header className="mb-8">
-            <h1 className="text-center text-4xl font-semibold">
-              Fórum de Discussões
-            </h1>
-          </header>
+        {/* Passa a função handleSidebarClick para a Sidebar */}
+        <Sidebar setCepData={handleSidebarClick} />
+        <div className="flex-1 bg-gray-100 p-6">
+          <div className="container mx-auto p-6">
+            <header className="mb-8">
+              <h1 className="text-center text-4xl font-semibold">
+                Fórum de Discussões
+              </h1>
+            </header>
 
-          <section>
-            <h2 className="mb-4 text-2xl font-medium">Tópicos Recentes</h2>
+            <section>
+              <h2 className="mb-4 text-2xl font-medium">Tópicos Recentes</h2>
 
-            <div className="space-y-4">
-              {topics.map((topic) => (
-                <Card key={topic.id}>
-                  <CardHeader>
-                    <CardTitle>{topic.title}</CardTitle>
-                    <CardDescription>{topic.description}</CardDescription>
-                    <CardDescription>{topic.photos} Fotos</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p>{topic.replies} Respostas</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+              <div className="space-y-4">
+                {topics.map((topic) => (
+                  <Card key={topic.id}>
+                    <CardHeader>
+                      <CardTitle>{topic.title}</CardTitle>
+                      <CardDescription>{topic.description}</CardDescription>
+                      <CardDescription>{topic.photos} Fotos</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <p>{topic.replies} Respostas</p>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
 
-            <div className="mt-8">
-              {/* Dialog para criar novo tópico */}
-              <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-                <DialogTrigger asChild>
-                  <Button>Criar Novo Tópico</Button>
-                </DialogTrigger>
-                <DialogContent>
-                  <DialogHeader className="flex justify-center text-xl font-bold">
-                    Criar Novo Tópico
-                  </DialogHeader>
-                  <div className="space-y-4">
-                    <div>
+              <div className="mt-8">
+                {/* Dialog para criar novo tópico */}
+                <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+                  <DialogTrigger asChild>
+                    <Button>Criar Novo Tópico</Button>
+                  </DialogTrigger>
+                  <DialogContent>
+                    <DialogHeader className="flex justify-center text-xl font-bold">
+                      Criar Novo Tópico
+                    </DialogHeader>
+                    <div className="space-y-4">
+                      <div>
+                        <label
+                          htmlFor="topicTitle"
+                          className="block text-sm font-medium text-gray-700"
+                        >
+                          Título do Tópico
+                        </label>
+                        <Input
+                          id="topicTitle"
+                          value={newTopicTitle}
+                          onChange={(e) => setNewTopicTitle(e.target.value)}
+                          placeholder="Digite o título do tópico"
+                          className="mt-2"
+                        />
+                      </div>
+                      <div>
+                        <label
+                          htmlFor="topicDescription"
+                          className="block text-sm font-medium text-gray-700"
+                        >
+                          Descrição do Tópico
+                        </label>
+                        <Textarea
+                          id="topicDescription"
+                          value={newTopicDescription}
+                          onChange={(e) =>
+                            setNewTopicDescription(e.target.value)
+                          }
+                          placeholder="Digite a descrição do tópico"
+                          className="mt-2"
+                        />
+                      </div>
                       <label
-                        htmlFor="topicTitle"
+                        htmlFor="photo"
                         className="block text-sm font-medium text-gray-700"
                       >
-                        Título do Tópico
+                        Envie a foto do problema
                       </label>
                       <Input
-                        id="topicTitle"
-                        value={newTopicTitle}
-                        onChange={(e) => setNewTopicTitle(e.target.value)}
-                        placeholder="Digite o título do tópico"
-                        className="mt-2"
+                        id="photo"
+                        type="file"
+                        placeholder="Envie a foto do problema"
                       />
                     </div>
-                    <div>
-                      <label
-                        htmlFor="topicDescription"
-                        className="block text-sm font-medium text-gray-700"
-                      >
-                        Descrição do Tópico
-                      </label>
-                      <Textarea
-                        id="topicDescription"
-                        value={newTopicDescription}
-                        onChange={(e) => setNewTopicDescription(e.target.value)}
-                        placeholder="Digite a descrição do tópico"
-                        className="mt-2"
-                      />
-                    </div>
-                    <label
-                      htmlFor="photo"
-                      className="block text-sm font-medium text-gray-700"
-                    >
-                      Envie a foto do problema
-                    </label>
-                    <Input
-                      id="photo"
-                      type="file"
-                      placeholder="Envie a foto do problema"
-                    />
-                  </div>
 
-                  <DialogFooter>
-                    <Button
-                      variant="outline"
-                      onClick={() => setIsModalOpen(false)}
-                    >
-                      Cancelar
-                    </Button>
-                    <Button onClick={handleCreateTopic}>Criar Tópico</Button>
-                  </DialogFooter>
-                </DialogContent>
-              </Dialog>
-            </div>
-          </section>
+                    <DialogFooter>
+                      <Button
+                        variant="outline"
+                        onClick={() => setIsModalOpen(false)}
+                      >
+                        Cancelar
+                      </Button>
+                      <Button onClick={handleCreateTopic}>Criar Tópico</Button>
+                    </DialogFooter>
+                  </DialogContent>
+                </Dialog>
+              </div>
+            </section>
+          </div>
         </div>
       </div>
+      <Footer />
     </div>
-<Footer />
-</div>
-    
   )
 }

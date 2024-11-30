@@ -23,12 +23,26 @@ const chartConfig = {
 } satisfies ChartConfig
 
 interface EnvironmentalIndicatorsChartProps {
-  dataChart: ChartData[]
+  dataChart: ChartData | null
 }
 
 export function EnvironmentalIndicatorsChart({
   dataChart,
 }: EnvironmentalIndicatorsChartProps) {
+  // Transformando os dados para o formato adequado para o gráfico
+  const chartData = [
+    { category: 'Área Verde', value: dataChart?.mediaAreaVerde },
+    {
+      category: 'Estrutura de Serviços',
+      value: dataChart?.mediaEstruturaDeServicos,
+    },
+    {
+      category: 'Densidade Populacional',
+      value: dataChart?.mediaDensidadePopulacional,
+    },
+    { category: 'Pontuação Total', value: dataChart?.mediaPontuacaoTotal },
+  ]
+
   return (
     <Card className="w-8/12">
       <CardHeader>
@@ -39,7 +53,7 @@ export function EnvironmentalIndicatorsChart({
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
-          <BarChart data={dataChart}>
+          <BarChart data={chartData}>
             <CartesianGrid vertical={false} stroke="#ccc" />
             <XAxis
               dataKey="category"

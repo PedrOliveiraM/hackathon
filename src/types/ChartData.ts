@@ -1,4 +1,6 @@
 export interface ChartData {
-  category: string
-  value: number
+  mediaAreaVerde: number
+  mediaEstruturaDeServicos: number
+  mediaDensidadePopulacional: number
+  mediaPontuacaoTotal: number
 }

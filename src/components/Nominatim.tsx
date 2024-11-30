@@ -38,8 +38,10 @@ export default function GeoMap({ cep }: GeoMapProps) {
         `https://nominatim.openstreetmap.org/search?q=${cep}&format=json`,
       )
       const data = await response.json()
+      console.log(data)
       if (data && data.length > 0) {
         const { lat, lon } = data[0]
+        console.log('lat:', lat, 'log:', lon)
         setCenter([parseFloat(lat), parseFloat(lon)])
         setError(null)
 
