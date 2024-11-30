@@ -5,7 +5,7 @@ import { EnvironmentalIndicatorsChart } from './EnvironmentalIndicatorsChart'
 import { useEffect, useState } from 'react'
 import { ViaCepResponse } from '../types/ViaCepResponse'
 import { ChartData } from '@/types/ChartData'
-import MapComponent from './MapComponent'
+import GeoMap from './Nominatim'
 
 export function Layout() {
   const [cepData, setCepData] = useState<ViaCepResponse | null>(null)
@@ -40,9 +40,8 @@ export function Layout() {
               </h2>
               <EnvironmentalIndicatorsChart dataChart={dataChart} />
             </div>
-
             <h1 className="mb-4 text-3xl font-semibold">Mapa</h1>
-            <MapComponent />
+            <GeoMap cep={cepData.cep} />
           </div>
         ) : (
           <p className="text-lg text-gray-700">
