@@ -87,7 +87,7 @@ export default function GeoMap({ cep }: GeoMapProps) {
 
   return (
     <div>
-      <div style={{ height: '500px', width: '100%' }}>
+      <div style={{ height: '400px', width: '50%' }}>
         {center ? (
           <MapContainer
             center={center}

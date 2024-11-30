@@ -28,7 +28,7 @@ export function Sidebar({
   }
 
   return (
-    <div className="bg-backgroundSideBar h-screen w-64 p-4 text-white">
+    <div className="bg-backgroundSideBar h-full w-64 p-4 text-white">
       <Link
         href={'/'}
         className="mb-8 flex gap-2 text-2xl font-bold text-green-600"

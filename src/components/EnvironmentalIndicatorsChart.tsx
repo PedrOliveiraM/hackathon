@@ -30,7 +30,7 @@ export function EnvironmentalIndicatorsChart({
   dataChart,
 }: EnvironmentalIndicatorsChartProps) {
   return (
-    <Card>
+    <Card className="w-8/12">
       <CardHeader>
         <CardTitle>Indicadores Ambientais</CardTitle>
         <CardDescription>

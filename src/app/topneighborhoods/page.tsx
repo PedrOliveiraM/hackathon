@@ -45,7 +45,7 @@ export default function TopRankingCeps() {
   }))
 
   return (
-    <Card>
+    <Card className="w-6/12">
       <CardHeader>
         <CardTitle>Top 10 Melhores Bairros - Goiás</CardTitle>
         <CardDescription>
