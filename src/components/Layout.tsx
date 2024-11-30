@@ -49,9 +49,9 @@ export function Layout() {
           )}
         </div>
       </div>
-
-      {/* Footer fica no final da tela */}
       <Footer />
     </div>
   )
 }
+
+

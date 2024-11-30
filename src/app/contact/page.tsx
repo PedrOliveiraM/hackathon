@@ -11,7 +11,8 @@ import {
   CardDescription,
 } from '@/components/ui/card' // Card do ShadCN
 import { Sidebar } from '@/components/Sidebar'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
+import { Footer } from '@/components/Footer'
 
 export default function ContactPage() {
   const router = useRouter()

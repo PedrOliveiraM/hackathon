@@ -1,4 +1,5 @@
 'use client'
+import { Footer } from '@/components/Footer'
 import { Sidebar } from '@/components/Sidebar'
 import { Button } from '@/components/ui/button' // Botão do ShadCN
 import {
@@ -81,7 +82,9 @@ export default function ForumPage() {
   }
 
   return (
-    <div className="flex h-screen">
+
+    <div className="flex flex-col h-screen">
+      <div className="flex h-screen">
       {/* Passa a função handleSidebarClick para a Sidebar */}
       <Sidebar setCepData={handleSidebarClick} />
       <div className="flex-1 bg-gray-100 p-6">
@@ -180,5 +183,8 @@ export default function ForumPage() {
         </div>
       </div>
     </div>
+<Footer />
+</div>
+    
   )
 }
