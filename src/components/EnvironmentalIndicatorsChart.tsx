@@ -1,5 +1,3 @@
-'use client'
-
 import {
   Card,
   CardContent,
@@ -24,25 +22,8 @@ const chartConfig = {
   },
 } satisfies ChartConfig
 
-// Interface para os dados do gráfico
 interface EnvironmentalIndicatorsChartProps {
-  dataChart: ChartData[] // Os dados a serem passados para o gráfico
-}
-
-// Função para definir a cor das barras
-const getBarColor = (category: string) => {
-  switch (category) {
-    case 'Poluição':
-      return '#ff4d4d' // Vermelho
-    case 'Área Verde':
-      return '#4caf50' // Verde
-    case 'Atmosfera':
-      return '#2196f3' // Azul
-    case 'Trânsito':
-      return '#ff9800' // Laranja
-    default:
-      return '#8884d8' // Cor padrão
-  }
+  dataChart: ChartData[]
 }
 
 export function EnvironmentalIndicatorsChart({
@@ -72,14 +53,7 @@ export function EnvironmentalIndicatorsChart({
               content={<ChartTooltipContent hideLabel />}
               cursor={false}
             />
-            {dataChart.map((entry) => (
-              <Bar
-                key={entry.category} // Adicionando a chave única para cada barra
-                dataKey="value"
-                fill={getBarColor(entry.category)} // Define a cor conforme a categoria
-                radius={8}
-              />
-            ))}
+            <Bar dataKey="value" fill="var(--color-desktop)" radius={8} />
           </BarChart>
         </ChartContainer>
       </CardContent>
