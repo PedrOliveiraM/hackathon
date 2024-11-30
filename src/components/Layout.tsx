@@ -6,13 +6,13 @@ import { useEffect, useState } from 'react'
 import { ViaCepResponse } from '../types/ViaCepResponse'
 import { ChartData } from '@/types/ChartData'
 import GeoMap from './Nominatim'
+import TopRankingCeps from '@/app/topneighborhoods/page'
 
 export function Layout() {
   const [cepData, setCepData] = useState<ViaCepResponse | null>(null)
   const [dataChart, setDataChart] = useState<ChartData[]>([])
 
   const fetchDataChart = async () => {
-    // dados obtidos pela api do atila com os indicadores ambientais do cep
     const data = [
       { category: 'Poluição', value: 50 },
       { category: 'Área Verde', value: 70 },
@@ -44,9 +44,7 @@ export function Layout() {
             <GeoMap cep={cepData.cep} />
           </div>
         ) : (
-          <p className="text-lg text-gray-700">
-            Busque um CEP para exibir os dados.
-          </p>
+          <TopRankingCeps />
         )}
       </div>
     </div>
