@@ -30,6 +30,9 @@ export default function TopRankingCeps() {
 
   useEffect(() => {
     // Simulação de dados com os nomes fornecidos
+
+    // Fazer um fecht para buscar dados gerais
+
     const simulatedData: BairroData[] = dataNeighborhoods
     // Ordenar pela pontuação total e pegar os 10 primeiros
     const sortedData = simulatedData

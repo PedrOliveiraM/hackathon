@@ -13,6 +13,9 @@ export function Layout() {
   const [dataChart, setDataChart] = useState<ChartData | null>(null)
 
   const fetchDataChart = async () => {
+    // fazer um fecght e adicionar no dat
+
+    // data = fecht . reponse.json()
     // buscar pelo cep
     const data = {
       mediaAreaVerde: 78.14763376915768,
